@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+
+\input{preamble.tex}
+\input{engr510_preamble.tex}
+
+\title{ENGR 510 ODE Homework}
+\author{Anthony Su}
+\date{October 18, 2024}
+
+\begin{document}
+\thispagestyle{plain}
+\maketitle
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EXERCISE 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+\begin{align*}
+    \dot{x} = \lambda x, \quad x(0) = 1
+\end{align*}
+
+
+\subsection{}  % 1.a -------------------------------------------
+General solution by separation of variables:
+\begin{align*}
+    \ddf{x}{t} &= \lambda x \\
+    \frac{\text{d}x}{x} &= \lambda \text{d}t \\
+    \ln(x) &= \lambda t + C \\
+    x(t) &= e^{\lambda t + C} \\
+    x(t) &= k e^{\lambda t}
+\end{align*}
+Applying the initial condition:
+\begin{align*}
+    x(0) &= k e^{\lambda \cdot 0} \\
+    1 &= k
+\end{align*}
+Therefore, the particular solution is:
+\begin{align*}
+    \Aboxed{
+    x(t) = e^{\lambda t}
+    }
+\end{align*}
+
+
+\subsection{}  % 1.b -------------------------------------------
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{1b_fig1.png}
+    \caption{Solution to $\dot{x}=\lambda x$ for various values of $\lambda$}
+    \label{fig_1b1}
+\end{figure}
+
+\subsection{}  % 1.c -------------------------------------------
+Positive values of $\lambda$ diverge to infinity, negative values of $\lambda$ converge to zero, and $\lambda=0$ remains constant.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EXERCISE 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+\begin{align*}
+    \ddot{x} - \lambda x &= 0
+\end{align*}
+
+\subsection{}  % 2.a -------------------------------------------
+Guess $x(t) = e^{l t}$:
+\begin{align*}
+    x(t) &= e^{l t} \\
+    \ddf{x}{t} &= l e^{l t} \\
+    \ddf{^2 x}{t^2} &= l^2 e^{l t}
+\end{align*}
+Generate characteristic polynomial by substitution into the ODE: % assuming that constant in the equation is same as lambda
+\begin{align*}
+    l^2 e^{l t} - \lambda e^{l t} &= 0 \\
+    e^{\lambda t} \left( l^2 - \lambda \right) &= 0 \\
+    l^2 - \lambda &= 0
+\end{align*}
+Solutions to the characteristic polynomial are $l=\pm\sqrt{\lambda}$. The general solution is the linear combination of the particular solutions:
+\begin{align*}
+    x(t) &= C_1 e^{\sqrt{\lambda} t} + C_2 e^{-\sqrt{\lambda} t}
+\end{align*}
+The first derivative is:
+\begin{align*}
+    \dot{x}(t) &= C_1 \sqrt{\lambda} e^{\sqrt{\lambda} t} - C_2 \sqrt{\lambda} e^{-\sqrt{\lambda} t}
+\end{align*}
+Applying initial conditions given by $x(0)$ and $\dot{x}(0)$:
+\begin{align*}
+    x(0) &= C_1 + C_2 \\
+    \dot{x}(0) &= C_1 \sqrt{\lambda} - C_2 \sqrt{\lambda}
+\end{align*}
+Solving the system of equations yields $C_1 = \frac{1}{2} \left( x(0) + \frac{\dot{x}(0)}{\sqrt{\lambda}} \right)$ and $C_2 = \frac{1}{2} \left( x(0) - \frac{\dot{x}(0)}{\sqrt{\lambda}} \right)$. Thus, the general solution to the ODE is
+\begin{align*}
+    \Aboxed{
+    x(t) &= \frac{1}{2} \left( x(0) + \frac{\dot{x}(0)}{\sqrt{\lambda}} \right) e^{\sqrt{\lambda} t} + \frac{1}{2} \left( x(0) - \frac{\dot{x}(0)}{\sqrt{\lambda}} \right) e^{-\sqrt{\lambda} t}
+    }
+\end{align*}
+
+\subsection{}  % 2.b -------------------------------------------
+When $\lambda > 0$, all quantities are real and the solution diverges due to the positive exponent in the first term. When $\lambda < 0$, the exponents are purely imaginary so oscillatory behavior without damping ensues.
+
+\subsection{}  % 2.c -------------------------------------------
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{2c_fig1.png}
+    \includegraphics[width=0.8\textwidth]{2c_fig2.png}
+    \caption{Solution to $\ddot{x}=\lambda x$ for various values of $\lambda$}
+    \label{fig_2c1}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EXERCISE 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\subsection{}  % 3.a -------------------------------------------
+The eigenvalues $(-1, -3)$ are negative real numbers, so the exponential result converges without oscillation.
+
+\subsection{}  % 3.b -------------------------------------------
+The eigenvalues $(0+2i, 0-2i)$ are purely imaginary which results a system that is purely oscillatory with no damping.
+
+\subsection{}  % 3.c -------------------------------------------
+The eigenvalues (-2, 4) have at least one with a positive real component, so the exponential solution diverges.
+
+\end{document}
