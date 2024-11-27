@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1732351427.42533 "/home/exurl/Projects/ENGR 510/hw_stats/stats_hw.tex" "stats_hw.pdf" "stats_hw" 1732351428.96799 0
-  "/home/exurl/Projects/ENGR 510/hw_stats/stats_hw.tex" 1732351425.76319 18682 ff9ed34cbadbbe509b754f5fade72735 ""
+["pdflatex"] 1732681019.17073 "/home/exurl/Projects/ENGR 510/hw_stats/stats_hw.tex" "stats_hw.pdf" "stats_hw" 1732681020.72791 0
+  "/home/exurl/Projects/ENGR 510/hw_stats/stats_hw.tex" 1732681018.89641 18678 ea41da6e9cf347d54b9d385750aa66e8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -209,9 +209,9 @@
   "6ffig1.png" 1732351181.65957 26908 0aeeb6cc7a45e75aba4341d91104830b ""
   "engr510_preamble.tex" 1731793972.93694 191 fb1bc702b8470cebd3463dba80d4cd8f ""
   "preamble.tex" 1732344482.31052 6165 58b00077779ea02a9bcd2ff7b1446704 ""
-  "stats_hw.aux" 1732351428.87518 7185 410d14c61146082485b733e573d2e890 "pdflatex"
-  "stats_hw.out" 1732351428.87518 2354 ad8d4ba74ad8b234739421d185d68d00 "pdflatex"
-  "stats_hw.tex" 1732351425.76319 18682 ff9ed34cbadbbe509b754f5fade72735 ""
+  "stats_hw.aux" 1732681020.63618 7185 410d14c61146082485b733e573d2e890 "pdflatex"
+  "stats_hw.out" 1732681020.63618 2354 ad8d4ba74ad8b234739421d185d68d00 "pdflatex"
+  "stats_hw.tex" 1732681018.89641 18678 ea41da6e9cf347d54b9d385750aa66e8 ""
   (generated)
   "stats_hw.aux"
   "stats_hw.log"
