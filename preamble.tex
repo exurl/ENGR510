@@ -1,6 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PACKAGES, FORMATTING, LISTING, AND OTHER GRAPHICAL ELEMENTS  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{amsmath,amssymb}
 \usepackage[T1]{fontenc} % font encoding
@@ -17,32 +15,20 @@
 \usepackage{pdfpages} % for \includepdf
 \usepackage{pdflscape} % landscape 
 \usepackage{mdframed} % for framed environment
-\usepackage{listings} % for code blocks
+\usepackage{minted} % for syntax-highlighted code blocks
 \usepackage{inconsolata} % better monospace font
-\usepackage{matlab-prettifier} % Better MATLAB listing highlighting
 \usepackage[letterpaper, total={6.5in, 9in}]{geometry} % set paper and margin size
 \usepackage{empheq} % multiline boxed equations, etc.
-\usepackage{hyperref}
+\usepackage{hyperref} % hyperlinked references?
 \usepackage{dsfont}	% gives you \mathds{} font
 % \usepackage{enumerate} % custom enumerate numbering (or lettering in this case)
 \usepackage[shortlabels]{enumitem} % more enumerate options
 \usepackage{svg} % use inkscape to import svgs
 \usepackage{bm} % bold symbols
 \usepackage[parfill]{parskip} % replace indentation with paragraph spacing
-\usepackage{dsfont} % gives you \mathds{} font
 
-% hyperbolic trig inverse functions
-\DeclareMathOperator{\sech}{sech}
-\DeclareMathOperator{\csch}{csch}
-\DeclareMathOperator{\arcsec}{arcsec}
-\DeclareMathOperator{\arccot}{arcCot}
-\DeclareMathOperator{\arccsc}{arcCsc}
-\DeclareMathOperator{\arccosh}{arcCosh}
-\DeclareMathOperator{\arcsinh}{arcsinh}
-\DeclareMathOperator{\arctanh}{arctanh}
-\DeclareMathOperator{\arcsech}{arcsech}
-\DeclareMathOperator{\arccsch}{arcCsch}
-\DeclareMathOperator{\arccoth}{arcCoth} 
+
+% FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % add page headers
 \pagestyle{fancy}
@@ -55,112 +41,33 @@
 \sectionfont{\fontsize{20}{15}\selectfont}
 \subsectionfont{\fontsize{14}{15}\selectfont}
 
-% vertical table spacing
-\renewcommand{\arraystretch}{1.5}
 
-% right-side cases
-% \newenvironment{rcases}
-%     {\left.\begin{aligned}}
-%     {\end{aligned}\right\rbrace}
+% LISTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Multi-line \fbox
-\newcommand\multilineBox[1]{
-\noindent
-\fbox{
-	\parbox{0.97\linewidth}
-		{#1}
-	}
-}
+% set code block formats
+\definecolor{code_bg}{gray}{0.95}
+\definecolor{console_bg}{gray}{1.00}
+\setminted{
+    bgcolor=code_bg,
+    fontsize=\normalsize,
+    linenos,
+    autogobble}
+\setminted[python-console]{
+    bgcolor=console_bg,
+    linenos=false
+    }
 
-% number just one equation in an un-numbered align* environment
-\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% set listings font to inconsolata
-\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{9} % for bold
-\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{9}  % for normal
-
-% general listings environment
-\lstnewenvironment{code}
-{\lstset{
-    frame=single,
-    % backgroundcolor=\color{xkcdPale},
-    basicstyle=\fontfamily{pcr}\selectfont\tiny
-    }}
-{}
-
-% MATLAB listings environment
-\lstnewenvironment{MATLAB}
-{\lstset{
-    style=Matlab-editor,
-    frame=single,
-    % backgroundcolor=\color{xkcdPale},
-    basicstyle=\fontfamily{pcr}\selectfont\tiny
-    }}
-{}
-
-% Python style for listings
-\newcommand\pythonstyle{\lstset{
-    language=Python,
-    basicstyle=\ttm,
-    morekeywords={self},              % Add keywords here
-    keywordstyle=\ttb\color{xkcdGreen},
-    morekeywords=[2]{
-        array,
-        pi,
-        zeros,
-        max,
-        sin,
-        cos,
-        linspace,
-        size,
-        plot,
-        xlabel,
-        title,
-        legend,
-        show,
-        concatenate,
-        logspace,
-        exp,
-        ylabel,
-        savefig,
-        grid,
-        figure,
-        axes
-    },
-    keywordstyle = [2]{\color{xkcdBrightBlue}},
-    emph={__init__},                  % Custom highlighting
-    emphstyle=\ttb\color{xkcdRed},    % Custom highlighting style
-    stringstyle=\color{xkcdGreen},
-    backgroundcolor=\color{xkcdPale},
-    numberstyle=\color{xkcdGrey},
-}}
-
-% Python listings environment
-\lstnewenvironment{python}[1][]
-{\pythonstyle \lstset{#1}}
-{}
-
-% Python listings for external files
-\newcommand\pythonexternal[2][]
-{{\pythonstyle \lstinputlisting[#1]{#2}}}
-
-% Python listings inline
-\newcommand\pythoninline[1]{{\pythonstyle \lstinline!#1!}}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% MATHEMATICAL SHORTCUTS                                       %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MATH MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % real and imaginary components
 \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\Im}{\operatorname{Im}}
 
 % Fourier transforms
-\newcommand\fourier[1]{\frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty #1 e^{-i\omega x} \textrm{d}x}
-\newcommand\inverseFourier[1]{\frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty #1 e^{i\omega x} \textrm{d}\omega}
+% \newcommand\fourier[1]{\frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty #1 e^{-i\omega x} \textrm{d}x}
+% \newcommand\inverseFourier[1]{\frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty #1 e^{i\omega x} \textrm{d}\omega}
+\newcommand\fourier[1]{\int_{-\infty}^\infty #1 e^{-i\omega x} \textrm{d}x}
+\newcommand\inverseFourier[1]{\frac{1}{2\pi} \int_{-\infty}^\infty #1 e^{i\omega x} \textrm{d}\omega}
 
 % derivatives
 \newcommand{\ppf}[2]{\frac{\partial #1}{\partial #2}}
@@ -183,29 +90,55 @@
 \newcommand{\poisson}{\operatorname{Poisson}}
 \newcommand{\normal}{\operatorname{Normal}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% COMMONLY USED COPYPASTAS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hyperbolic trig inverse functions
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arcCot}
+\DeclareMathOperator{\arccsc}{arcCsc}
+\DeclareMathOperator{\arccosh}{arcCosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arcCsch}
+\DeclareMathOperator{\arccoth}{arcCoth} 
 
-% CODE BLOCK
 
-% \begin{MATLAB}[caption={MATLAB script},label={code:p1}]
-% for i = 1:n
-%     disp('string')
-% end
-% \end{MATLAB}
-% Code block \ref{code:p1}
+% COMMONLY USED COPYPASTAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% CODE BLOCK
+
+% \begin{listing}[H]
+%     \caption{Code and output}
+%     \label{lst1}
+%     \begin{minted}{python}
+%         import numpy as np
+%         A = np.array([1, 2, 3])
+%         print('Hello World')
+%     \end{minted}
+%     \begin{minted}{python-console}
+%         Hello World
+%     \end{minted}
+% \end{listing}
+
+% \inputminted{python}{helloworld.py}
 
 
 
-% MULTIPLE EQUATIONS BOXED
+%% MULTIPLE EQUATIONS BOXED
 
 % \begin{empheq}[box=\fbox]{align}
 % \end{empheq}
 
 
 
-% ENUMERTATE WITH a) instead of 1.
+%% ENUMERTATE WITH a) instead of 1.
 
 % \begin{enumerate}[label=\alph*)]
 % \end{enumerate}
+
+
+
+%% SET CURRENT SUBHEADER NUMBER
+
+% \setcounter{subsection}{1}

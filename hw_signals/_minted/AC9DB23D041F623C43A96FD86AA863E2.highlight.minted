@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{Inner product of m=1 and n=4 is: \PYGZhy{}1.0963994469259664e\PYGZhy{}17}
+\PYG{g+go}{Inner product of m=2 and n=6 is: \PYGZhy{}1.3227266504323154e\PYGZhy{}17}
+\PYG{g+go}{Inner product of m=3 and n=15 is: \PYGZhy{}2.439454888092385e\PYGZhy{}18}
+\end{MintedVerbatim}

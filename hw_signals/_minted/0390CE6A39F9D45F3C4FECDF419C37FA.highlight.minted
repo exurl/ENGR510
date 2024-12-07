@@ -1,0 +1,13 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{x\PYGZus{}vec} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mf}{1.01}\PYG{p}{,} \PYG{l+m+mf}{0.01}\PYG{p}{)}
+\PYG{n}{fig}\PYG{p}{,} \PYG{n}{ax} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mf}{2.5}\PYG{p}{)}\PYG{p}{,} \PYG{n}{layout}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{constrained}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{for} \PYG{n}{m} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{y\PYGZus{}vec} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{cos}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{pi} \PYG{o}{*} \PYG{n}{m} \PYG{o}{*} \PYG{n}{x\PYGZus{}vec}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x\PYGZus{}vec}\PYG{p}{,} \PYG{n}{y\PYGZus{}vec}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{m=}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{m}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{f(x)}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{n}{fig}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{1bfig1.png}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{dpi}\PYG{o}{=}\PYG{l+m+mi}{300}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{MintedVerbatim}

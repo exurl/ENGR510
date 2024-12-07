@@ -1,0 +1,17 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Compute fourier series mode coefficients}
+\PYG{n}{k} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{101}\PYG{p}{)}
+\PYG{n}{Ak} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{o}{/}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{pi}\PYG{o}{*}\PYG{n}{k}\PYG{p}{)}\PYG{o}{*}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{pi}\PYG{o}{*}\PYG{n}{k}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n}{Bk} \PYG{o}{=} \PYG{n}{k}\PYG{o}{*}\PYG{l+m+mi}{0}
+
+\PYG{c+c1}{\PYGZsh{} Plot fourier series mode coefficients}
+\PYG{n}{fig}\PYG{p}{,} \PYG{n}{ax} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mf}{6.5}\PYG{p}{,} \PYG{l+m+mf}{3.5}\PYG{p}{)}\PYG{p}{,} \PYG{n}{layout}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{constrained}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{k}\PYG{p}{,} \PYG{n}{Ak}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{.}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}A\PYGZus{}k\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{k}\PYG{p}{,} \PYG{n}{Bk}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{+}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}B\PYGZus{}k\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}k\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Mode coefficient}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{ax}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{n}{fig}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{4bfig1.png}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{dpi}\PYG{o}{=}\PYG{l+m+mi}{300}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{MintedVerbatim}

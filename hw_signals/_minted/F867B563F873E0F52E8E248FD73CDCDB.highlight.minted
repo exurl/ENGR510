@@ -1,0 +1,25 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Define square wave function}
+    \PYG{k}{def} \PYG{n+nf}{square}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mod}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{)} \PYG{o}{\PYGZgt{}}\PYG{o}{=} \PYG{l+m+mi}{2}
+
+    \PYG{c+c1}{\PYGZsh{} Define fourier series square wave approximation function}
+    \PYG{k}{def} \PYG{n+nf}{square\PYGZus{}approx}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{n}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb}{sum} \PYG{o}{=} \PYG{l+m+mf}{0.5} \PYG{o}{+} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{x}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{)}
+        \PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{:}
+            \PYG{n+nb}{sum} \PYG{o}{+}\PYG{o}{=} \PYG{l+m+mi}{2}\PYG{o}{/}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{pi}\PYG{o}{*}\PYG{n}{k}\PYG{p}{)} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{pi}\PYG{o}{*}\PYG{n}{k}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{cos}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{pi}\PYG{o}{*}\PYG{n}{k}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{x}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n+nb}{sum}
+
+    \PYG{c+c1}{\PYGZsh{} Plot square wave function}
+    \PYG{n}{dx} \PYG{o}{=} \PYG{l+m+mf}{0.01}
+    \PYG{n}{x\PYGZus{}vec} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{o}{+}\PYG{n}{dx}\PYG{p}{,} \PYG{n}{dx}\PYG{p}{)}
+
+    \PYG{n}{fig}\PYG{p}{,} \PYG{n}{ax} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{,} \PYG{n}{layout}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{constrained}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x\PYGZus{}vec}\PYG{p}{,} \PYG{n}{square}\PYG{p}{(}\PYG{n}{x\PYGZus{}vec}\PYG{p}{)}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{k\PYGZhy{}\PYGZhy{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{truth}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x\PYGZus{}vec}\PYG{p}{,} \PYG{n}{square\PYGZus{}approx}\PYG{p}{(}\PYG{n}{x\PYGZus{}vec}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Fourier series approx.}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}x\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}f(x)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{fig}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{4cfig1.png}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{dpi}\PYG{o}{=}\PYG{l+m+mi}{300}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{MintedVerbatim}
