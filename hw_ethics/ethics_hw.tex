@@ -1,0 +1,130 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+
+\input{preamble.tex}
+\input{engr510_preamble.tex}
+
+\title{ENGR 510 Ethics Homework}
+\author{Anthony Su}
+\date{December 6, 2024}
+
+\begin{document}
+\thispagestyle{plain}
+\maketitle
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 1. Review or Choose and Article for an Ethics Discussion
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Article}
+
+\subsection{} % a --------------------------------------------------------------
+Price, I., Sanchez-Gonzalez, A., Alet, F. et al. Probabilistic weather forecasting with machine learning. Nature (2024). https://doi.org/10.1038/s41586-024-08252-9
+
+\subsection{} % b --------------------------------------------------------------
+Weather forecasts today rely on ensemble numerical physical simulations. An
+important feature of these models is their dual deterministic (realistic and
+detailed trajectories) and probabilistic (accurate distributions of
+trajectories) accuracy. The authors developed a machine learning model called
+GenCast which has these key features and outperforms existing numerical physical
+simulations in weather prediction accuracy with reduced computational cost.
+GenCast's architecture is based on conditional diffusion.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 2. Engineering Code of Ethics
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Engineering Code of Ethics}
+
+\subsection{} % a --------------------------------------------------------------
+I have no experience in weather prediction and only cursory knowledge of machine
+learning (and none in diffusion models). I am not qualified to serve weather
+forecasts to the public. I would require a team of machine learning engineers
+(who understand diffusion models) and meteorologists (who can validate the
+models) in order to perform the work.
+
+\subsection{} % b --------------------------------------------------------------
+Standards which are imposed on the outputs of the simulations would be
+straightforward to apply. For example, data formats, standard statistical
+metrics, and empirical validation methods would be the same.
+
+However, standards imposed on the model itself (such as enforcing certain
+conservation laws, stability measures, etc.) would be difficult to apply since
+these concepts may not be well-defined for the model as it is currently
+implemented.
+
+\subsection{} % c --------------------------------------------------------------
+The machine learning model in this case is not too unlike the model it is
+replacing; it is a probabilistic model. Thus, the usual caveats about
+uncertainty and confidence intervals apply.
+
+\subsection{} % d --------------------------------------------------------------
+\textbf{Hold paramount the safety, health, and welfare of the public.}
+
+Research and development of predictive machine learning weather prediction
+models should always be validated to standard levels before being used to
+publish forecasts to the public, even at the cost of research progress. For
+example, if research funding to bring a model to a higher TRL is contingent on
+accurate published forecasts, the model must be well validated before publishing
+these forecasts to the public.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 3. Benefits and Harms
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Benefits and Harms}
+
+\subsection*{Benefits} % Benefits ----------------------------------------------
+The immediate benefit from this model is increased accuracy. This will increase
+the quality of life (happiness) for all affected as plans based on weather
+forecasts are interrupted less frequently and dangerous weather events are
+forewarned more consistently.
+
+A secondary benefit is increased equality as the barrier to entry for weather
+prediction is reduced. Not only is the cost of weather forecasting reduced, but
+also climate science education and research. These models can be used for
+acadeemic purposes in lower-income regions, increasing their scientific
+and economic autonomy.
+
+\subsection*{Harms} % Harms ----------------------------------------------------
+A weather model can exacerbate global inequality. If the training data for the
+model was not evenly sampled with uniform precision and accuracy around the
+globe, then wealthier regions with a higher density of weather instrumentation
+could be more accurately represented in the training data and thus more
+accurately modeled by the predictive model.
+
+A weather model can also exacerbate global inequality by construction. GenCast
+utilizes an equiangular latitude-longitude grid spatial discretization. This
+discretization has increased grid density near the poles and decreased grid
+density near the equator. Thus, forecasts near the equator will be lower in
+resolution and potentially less accurate. This can be avoided by using a more
+uniformly distributed discretization such as an isocahedral grid.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 3. AI or ML Code of Ethics
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{AI or ML Code of Ethics}
+
+\subsection{} % a --------------------------------------------------------------
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=6.5in]{BoeingPrinciplesforAIEnabledSystems.pdf}
+    \caption{Boeing Principles for AI-Enabled Systems}
+    \label{3afig1}
+\end{figure}
+
+\subsection{} % b --------------------------------------------------------------
+In a few sentences, discuss what you think of the code you found. Some things you might
+consider: Does it seem complete to you? Does it seem relevant to the work you do? Is it easy
+to interpret? Is it already out of date, or do you anticipate that it will be durable, or quickly
+become obsolete?
+
+The principles appear complete and relevant, especially in the context of
+engineered systems. However, it does not address the issue of bias which is a
+particularly harmful omission when data-driven models are trained on human or
+otherwise societal data. While this issue likely does not apply to the most
+obvious applications of machine learning at Boeing (e.g. system identification
+of engineered systems, flight anomaly detection, manufacturing quality control,
+etc.), Boeing products ultimately are operated by, for, and around humans and
+human society, and thus there is potential for unintentional reinfocement of
+biases.
+
+\end{document}
